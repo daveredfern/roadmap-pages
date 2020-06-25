@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+
+  {% comment %} Page setting {% endcomment %}
+	<meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta charset="utf-8">
+
+
+  {% if page.seo_title %}
+    {% assign page_title = page.seo_title %}
+  {% else %}
+    {% assign page_title = page.title %}
+  {% endif %}
+
+  {% comment %} Title {% endcomment %}
+  <title>{{ page_title }} - {{ site.title }}</title>
+
+  {% comment %} Favicon {% endcomment %}
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/favicon/favicon-16x16.png">
+  <link rel="manifest" href="/manifest.json">
+  <meta name="apple-mobile-web-app-status-bar" content="#1C606D">
+	<meta name="msapplication-TileColor" content="#1C606D">
+  <meta name="theme-color" content="#fff">
+
+  {% comment %} Misc meta information {% endcomment %}
+  <meta itemprop="description" name="description" content="{% if page.url == "/" %}{{ site.description | truncate: 150  }}{% else %}{{ page.content | markdownify | strip_html | truncate: 150 }}{% endif %}" />
+  <meta name="author" content="{{ site.title }}">
+  <meta name="robots" content="all" />
+
+  {% comment %} Social meta information {% endcomment %}
+  <meta property="og:locale" content="en_US">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="{%if page_title %}{{ page_title }}{% else %}{{ site.title }}{% endif %}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="article:published_time" content="{{ page.date }}" />
+  <meta property="og:description" content="{% if page.url == "/" %}{{ site.description | truncate: 150  }}{% else %}{{ page.content | markdownify | strip_html | truncate: 150 }}{% endif %}">
+
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="{%if page_title %}{{ page_title }}{% else %}{{ site.title }}{% endif %}">
+  <meta name="twitter:description" content="{% if page.url == "/" %}{{ site.description | truncate: 150  }}{% else %}{{ page.content | markdownify | strip_html | truncate: 150 }}{% endif %}">
+  <meta name="twitter:site" content="{{ site.twitter_username }}" />
+  <meta name="twitter:creator" content="{{ site.twitter_username }}">
+  <meta name="twitter:card" content="summary">
+
+  {% comment %} Canonical url {% endcomment %}
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  {% comment %} CSS {% endcomment %}
+  <link rel="stylesheet" href="/assets/css/styles.css">
+
+</head>
+<body>
+
+  <div class="container section">
+
+    <nav>
+      <ul class="inline-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="/about/">About</a></li>
+        <li><a href="/roadmap/">Roadmap</a></li>
+      </ul>
+    </nav>
+
+    <div role="main">
+
+      <h1>{{ page.title }}</h1>
+
+      {{ page.content  }}
+
+    </div>
+
+  </div>
+
+</body>
+</html>

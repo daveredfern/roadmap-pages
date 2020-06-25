@@ -1,0 +1,257 @@
+/* Variables */
+
+:root {
+	--color: #111;
+
+	--primary-color: #1C606D;
+	--light-primary-color: #DEEBEC;
+	--dark-primary-color: #0F4447;
+
+	--bg-color: #fff;
+
+	--light-color: #eee;
+	--mute-color: #ddd;
+	--selection-color: #feff91;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color: #ddd;
+
+		--primary-color: #E99BC8;
+		--light-primary-color: #56414d;
+		--dark-primary-color: #efc3dc;
+
+		--bg-color: #222;
+
+		--light-color: #333;
+		--mute-color: #444;
+	}
+}
+
+/* Global */
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--bg-color);
+    scroll-behavior: smooth;
+	text-rendering: optimizeLegibility;
+    font-variant-ligatures: common-ligatures;
+}
+
+html,
+input,
+textarea,
+button {
+	line-height: 1.5;
+	color: var(--color);
+	font-family: sans-serif;
+	font-size: 1em;
+}
+
+html {
+	font-size: calc(.95em + 0.4vw);
+    min-height: 0vw; /* Hack to fix Safari */
+}
+
+/* Links */
+
+a,
+a:link {
+	color: var(--primary-color);
+}
+
+a:hover {
+	background-color: var(--light-primary-color);
+	outline: .15em solid var(--light-primary-color);
+}
+
+a:focus {
+	background-color: var(--primary-color);
+	color: var(--bg-color);
+	outline: .15em solid var(--primary-color);
+}
+
+/* Highlight color */
+
+::-moz-selection {
+	background: var(--selection-color);
+	/* WebKit/Blink Browsers */
+}
+
+::selection {
+	background: var(--selection-color);
+	/* WebKit/Blink Browsers */
+}
+
+::-moz-selection {
+	background: var(--selection-color);
+	/* Gecko Browsers */
+}
+
+/* Spacing for elements */
+
+p,
+ol,
+ul,
+blockquote,
+pre {
+	margin-top: 1.2em;
+	margin-bottom: 1.2em;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.1;
+	letter-spacing: -0.01em;
+	margin-top: 1.5em;
+	margin-bottom: 0.6em;
+	scroll-margin-top: 1em;
+}
+
+h1 {
+	margin-top: 1em;
+	font-size: calc(1.8em + .3vw);
+}
+
+h1 + *,
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + * {
+	margin-top: 0;
+}
+
+hr {
+	height: 1px;
+	border: 0;
+	border-bottom: 3px solid var(--mute-color);
+	outline: 0;
+	clear: both;
+	margin: calc(1.8em + .6vw) 0;
+	width: 30%;
+}
+
+blockquote {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	border-left: 3px solid var(--color);
+	padding-left: 1.2em;
+	padding-right: 1.2em;
+	margin-left: 0;
+	margin-right: 0;
+	font-style: italic;
+}
+
+@media(min-width: 44em) {
+	blockquote {
+		margin-left: calc(-1.2em - 3px);
+	}
+}
+
+li {
+	padding-left: 0.5em;
+	margin-bottom: 0.3em;
+}
+
+@media(min-width: 44em) {
+	div > ul:not(.inline-list),
+	div > ol {
+		padding-left: 0;
+		margin-left: -0.5em;
+	}
+}
+
+/* Media */
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border-radius: 5px;
+}
+
+iframe {
+	width: 100%;
+}
+
+/* Custom font styles */
+
+.lead {
+	font-size: 1.2em;
+}
+
+.micro {
+	font-size: 0.8em;
+}
+
+/* Inline list */
+
+.inline-list {
+	padding-left: 0;
+	margin-left: -.3em;
+	margin-top: .8em;
+	margin-bottom: .8em;
+}
+
+.inline-list li {
+	padding-left: 0;
+	margin-bottom: 0;
+	display: inline-block;
+	list-style: none;
+}
+
+.inline-list a {
+	padding: .4em .3em;
+	display: inline-block;
+}
+
+@media(min-width: 44em) {
+	.inline-list {
+		margin-left: -.5em;
+	}
+	.inline-list a {
+		padding-left: .5em;
+		padding-right: .5em;
+	}
+}
+
+/* Container */
+
+.container {
+	max-width: calc(34rem + 12vw);
+	width: 100%;
+	padding-left: 6vw;
+	padding-right: 6vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Spacing */
+
+.spacing {
+	margin-bottom: calc(1em + 3vw);
+	margin-top: calc(1em + 3vw);
+}

@@ -1,0 +1,560 @@
+{% comment %} Variables {% endcomment %}
+
+:root {
+	--color: #111;
+
+	--primary-color: #1C606D;
+	--light-primary-color: #DEEBEC;
+	--dark-primary-color: #0F4447;
+
+	--bg-color: #fff;
+
+	--light-color: #eee;
+	--mute-color: #ddd;
+	--selection-color: #feff91;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--color: #ddd;
+
+		--primary-color: #E99BC8;
+		--light-primary-color: #56414d;
+		--dark-primary-color: #efc3dc;
+
+		--bg-color: #222;
+
+		--light-color: #333;
+		--mute-color: #444;
+	}
+}
+
+{% comment %} Custom font {% endcomment %}
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: url('/assets/fonts/SourceSerifPro-It.woff2') format('woff2'),
+        url('/assets/fonts/SourceSerifPro-It.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: url('/assets/fonts/SourceSerifPro-Bold.woff2') format('woff2'),
+        url('/assets/fonts/SourceSerifPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'Source Serif Pro';
+    src: url('/assets/fonts/SourceSerifPro-BoldIt.woff2') format('woff2'),
+        url('/assets/fonts/SourceSerifPro-BoldIt.woff') format('woff');
+    font-weight: bold;
+    font-style: italic;
+    font-display: fallback;
+}
+
+@font-face {
+    font-family: 'Source Serif Pro';
+	src: local('Awesome Font'),
+		url('/assets/fonts/SourceSerifPro-Regular.woff2') format('woff2'),
+        url('/assets/fonts/SourceSerifPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: fallback;
+}
+
+{% comment %} Global {% endcomment %}
+
+* {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+	background-color: var(--bg-color);
+    scroll-behavior: smooth;
+	text-rendering: optimizeLegibility;
+    font-variant-ligatures: common-ligatures;
+}
+
+html,
+input,
+textarea,
+button {
+	line-height: 1.5;
+	color: var(--color);
+	font-family: "Source Serif Pro", serif;
+	font-size: 1em;
+}
+
+html {
+	font-size: calc(.95em + 0.4vw);
+    min-height: 0vw; {% comment %} Hack to fix Safari {% endcomment %}
+}
+
+{% comment %} Links {% endcomment %}
+
+a,
+a:link {
+	color: var(--primary-color);
+}
+
+a:hover {
+	background-color: var(--light-primary-color);
+	outline: .15em solid var(--light-primary-color);
+}
+
+a:focus {
+	background-color: var(--primary-color);
+	color: var(--bg-color);
+	outline: .15em solid var(--primary-color);
+}
+
+{% comment %} Highlight color {% endcomment %}
+
+::-moz-selection {
+	background: var(--selection-color);
+	{% comment %} WebKit/Blink Browsers {% endcomment %}
+}
+
+::selection {
+	background: var(--selection-color);
+	{% comment %} WebKit/Blink Browsers {% endcomment %}
+}
+
+::-moz-selection {
+	background: var(--selection-color);
+	{% comment %} Gecko Browsers {% endcomment %}
+}
+
+{% comment %} Spacing for elements {% endcomment %}
+
+p,
+ol,
+ul,
+blockquote,
+pre,
+form,
+label,
+.media-embed,
+.media-object,
+.notification {
+	margin-top: 1.2em;
+	margin-bottom: 1.2em;
+}
+
+ul ul,
+ol ol,
+ul ol,
+ol ul {
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+}
+
+{% comment %} Typography {% endcomment %}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	line-height: 1.1;
+	letter-spacing: -0.01em;
+	margin-top: 1.5em;
+	margin-bottom: 0.6em;
+	scroll-margin-top: 1em;
+}
+
+h1 {
+	margin-top: 1em;
+	font-size: calc(1.8em + .3vw);
+}
+
+@media(min-width: 44em) {
+	h1 {
+		font-size: calc(2em + .5vw);
+	}
+}
+
+h1 + *,
+h2 + *,
+h3 + *,
+h4 + *,
+h5 + *,
+h6 + * {
+	margin-top: 0;
+}
+
+hr {
+	height: 1px;
+	border: 0;
+	border-bottom: 3px solid var(--mute-color);
+	outline: 0;
+	clear: both;
+	margin: calc(1.8em + .6vw) 0;
+	width: 30%;
+}
+
+blockquote {
+	margin-top: 1.5em;
+	margin-bottom: 1.5em;
+	border-left: 3px solid var(--color);
+	padding-left: 1.2em;
+	padding-right: 1.2em;
+	margin-left: 0;
+	margin-right: 0;
+	font-style: italic;
+}
+
+@media(min-width: 44em) {
+	blockquote {
+		margin-left: calc(-1.2em - 3px);
+	}
+}
+
+li {
+	padding-left: 0.5em;
+	margin-bottom: 0.3em;
+}
+
+@media(min-width: 44em) {
+	div > ul:not(.inline-list),
+	div > ol {
+		padding-left: 0;
+		margin-left: -0.5em;
+	}
+}
+
+{% comment %} Code {% endcomment %}
+
+code {
+	padding: 0.1em 0.5em;
+	border-radius: 5px;
+	vertical-align: text-top;
+	background-color: var(--light-color);
+	font-size: 0.8em;
+	color: var(--color);
+}
+
+pre code {
+	display: block;
+	padding: 1.2em;
+	overflow-x: auto;
+}
+
+@media(min-width: 44em) {
+	pre code {
+		margin-left: -1.2em;
+		margin-right: -1.2em;
+	}
+}
+
+{% comment %} Media {% endcomment %}
+
+img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+	border-radius: 5px;
+}
+
+iframe {
+	width: 100%;
+}
+
+{% comment %} Custom font styles {% endcomment %}
+
+.lead {
+	font-size: 1.2em;
+}
+
+.micro {
+	font-size: 0.8em;
+}
+
+.highlight,
+a.highlight {
+	color: var(--primary-color) !important;
+}
+
+a.highlight:focus {
+	color: var(--bg-color) !important;
+}
+
+.mute,
+a.mute {
+	color: var(--mute-color) !important;
+}
+
+{% comment %} Inline list {% endcomment %}
+
+.inline-list {
+	padding-left: 0;
+	margin-left: -.3em;
+	margin-top: .8em;
+	margin-bottom: .8em;
+}
+
+.inline-list li {
+	padding-left: 0;
+	margin-bottom: 0;
+	display: inline-block;
+	list-style: none;
+}
+
+.inline-list a {
+	padding: .4em .3em;
+	display: inline-block;
+}
+
+@media(min-width: 44em) {
+	.inline-list {
+		margin-left: -.5em;
+	}
+	.inline-list a {
+		padding-left: .5em;
+		padding-right: .5em;
+	}
+}
+
+{% comment %} Container {% endcomment %}
+
+.container {
+	max-width: calc(34rem + 12vw);
+	width: 100%;
+	padding-left: 6vw;
+	padding-right: 6vw;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+{% comment %} Spacing {% endcomment %}
+
+.spacing {
+	margin-bottom: calc(1em + 3vw);
+	margin-top: calc(1em + 3vw);
+}
+
+{% comment %} Forms {% endcomment %}
+
+label {
+	display: block;
+}
+
+input {
+	max-width: 26em;
+}
+
+input,
+textarea {
+	padding: .5em 1em;
+	width: 100%;
+	margin-top: .5em;
+	background-color: var(--bg-color);
+	border: 2px solid var(--color);
+	border-radius: 5px;
+}
+
+textarea {
+	min-height: 10em;
+}
+
+input:focus,
+textarea:focus {
+	border-color: var(--primary-color);
+}
+
+{% comment %} Visibility classes {% endcomment %}
+
+.hidden {
+	display: none !important;
+}
+
+{% comment %} Button {% endcomment %}
+
+a.button,
+input[type="submit"],
+button {
+	-webkit-appearance: none;
+	padding: .5em 1.2em;
+	border-radius: 5px;
+	font-size: inherit;
+	letter-spacing: -0.01em;
+	font-weight: bold;
+	text-decoration: none;
+	display: inline-block;
+	vertical-align: middle;
+	text-align: center;
+	width: auto;
+	fill: currentColor;
+	background-color: var(--primary-color);
+	border: 2px solid var(--primary-color);
+	color: var(--bg-color);
+	white-space: inherit;
+	text-decoration: none;
+}
+
+a.button:hover,
+input[type="submit"]:hover,
+button:hover {
+	background-color: var(--dark-primary-color);
+	border-color: var(--dark-primary-color);
+	outline: 0;
+}
+
+{% comment %} Search chip {% endcomment %}
+
+a.search-chip {
+	padding: 0.3em .8em;
+    border-radius: 100px;
+    border: 2px solid var(--primary-color);
+    text-decoration: none;
+    display: inline-block;
+    margin-top: .3em;
+	margin-bottom: .3em;
+	margin-right: .3em;
+	font-size: 0.85em;
+	font-weight: bold;
+}
+
+a.search-chip:hover,
+a.search-chip:focus {
+	outline: 0;
+}
+
+a.search-chip.is-active {
+	background-color: var(--primary-color);
+	color: var(--bg-color);
+}
+
+{% comment %} Media object {% endcomment %}
+
+.media-embed {
+	position: relative;
+	overflow: hidden;
+	padding-top: calc(100% / (16 / 9));
+}
+
+.media-embed--43 {
+	padding-top: calc(100% / (4 / 3));
+}
+
+.media-embed>* {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+
+{% comment %} Media object {% endcomment %}
+
+.media-object__media {
+	width: 20%;
+	min-width: 60px;
+	margin-left: 1em;
+	margin-bottom: 1em;
+	float: right;
+}
+
+.media-object__body > *:first-child {
+	margin-top: 0;
+}
+
+.media-object__body > *:last-child {
+	margin-bottom: 0;
+}
+
+@media(min-width: 44em) {
+	.media-object {
+		display: flex;
+	}
+
+	.media-object__media {
+		width: 15%;
+		margin: 0 1em 0 0;
+		flex-shrink: 0;
+	}
+
+	.media-object__body {
+		flex-grow: 1;
+	}
+}
+
+.round {
+	border-radius: 100px;
+	overflow: hidden;
+}
+
+{% comment %} Anchor links {% endcomment %}
+
+.anchor-link {
+	margin-left: .5em;
+}
+
+@media(min-width: 44em) {
+	h2[id],
+	h3[id] {
+		position: relative;
+	}
+
+	.anchor-link {
+		position: absolute;
+		top: -0.15rem;
+		left: -1.95rem;
+		padding: .35rem;
+		margin-left: 0;
+		display: block;
+		font-size: 1.1rem;
+		text-decoration: none;
+	}
+
+	h3 .anchor-link {
+		top: -0.3rem;
+	}
+}
+
+{% comment %} Notification {% endcomment %}
+
+.notification {
+	border: 3px solid var(--mute-color);
+    border-radius: 5px;
+    padding: 1.2em;
+}
+
+.notification > *:first-child {
+	margin-top: 0;
+}
+
+.notification > *:last-child {
+	margin-bottom: 0;
+}
+
+@media(min-width: 44em) {
+	.notification {
+		margin-left: calc(-1.2em - 2px);
+		margin-right: calc(-1.2em - 2px);
+	}
+}
+
+{% comment %} Header hack {% endcomment %}
+
+@media(max-width: 59.99em) {
+	.header .inline-list li:first-child {
+		display: block;
+	}
+}
+
+{% comment %} External links {% endcomment %}
+
+a[rel*="noopener"]::after {
+	content: "\00A0↗"
+}
