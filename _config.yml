@@ -18,11 +18,13 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Roadmap pages
+source: content
+
+title: "Roadmap pages"
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://roadmap-pages.com" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: roadmap-pages
-github_username:  roadmap-pages
+twitter_username: "roadmap-pages"
+github_username:  "roadmap-pages"
 permalink: /:slug/
 
 # Build settings

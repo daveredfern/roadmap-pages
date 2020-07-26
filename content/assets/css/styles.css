@@ -255,3 +255,30 @@ iframe {
 	margin-bottom: calc(1em + 3vw);
 	margin-top: calc(1em + 3vw);
 }
+
+/* Grid */
+
+.profiles {
+	display: flex;
+	flex-flow: wrap;
+	margin-left: -.5em;
+	margin-right: -.5em;
+}
+
+.profile {
+	border: 1px solid var(--color);
+	padding: .5em 1em;
+	margin-right: .5em;
+	margin-left: .5em;
+}
+
+.profile > * {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+@media(min-width: 39em) {
+	.profile {
+		width: calc(50% - 1em);
+	}
+}
