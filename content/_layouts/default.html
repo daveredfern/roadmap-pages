@@ -70,10 +70,10 @@
       <div class="profiles">
         {% for profile in site.data.profiles %}
           <div class="profile">
-            <h3><a href="{{ profile.url }}">{{ profile.name }}</a></h3>
-            <p>{{ profile.description }}</p>
-            <p>{{ profile.twitter }}</p>
-            <p>
+            <h3 class="profile__name"><a href="{{ profile.url }}">{{ profile.name }}</a></h3>
+            <p class="profile__desc">{{ profile.description }}</p>
+            <p class="profile__twitter">{{ profile.twitter }}</p>
+            <p class="profile__tags">
               {{ profile.country }},
               {% for tag in profile.tags %}
                 {{ tag }}, 

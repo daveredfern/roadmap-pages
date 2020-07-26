@@ -270,15 +270,23 @@ iframe {
 	padding: .5em 1em;
 	margin-right: .5em;
 	margin-left: .5em;
-}
-
-.profile > * {
-	margin-top: 0.5em;
-	margin-bottom: 0.5em;
+	display: flex;
+	flex-direction: column;
 }
 
 @media(min-width: 39em) {
 	.profile {
 		width: calc(50% - 1em);
 	}
+}
+
+.profile > * {
+	width: 100%;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.profile__twitter {
+	margin-top: auto;
+	padding-top: .5em;
 }
